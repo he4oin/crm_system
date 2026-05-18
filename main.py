@@ -4,6 +4,7 @@ def register_client(name,phone):
         "телефон": phone,
         "статус": "активен"
     }
+
 print(register_client(name = "Матвей" , phone = "+7904948892"))
 
 def create_order(item, price, loyalty_card=False):
@@ -16,4 +17,15 @@ def create_order(item, price, loyalty_card=False):
 create_order(item="Ноутбук", price=30000, loyalty_card=True)
 
 
-    
+TAX_RATE = 0.20
+print(f"TAX_RATE до вызова функции: {TAX_RATE}")
+
+def calculate_tax(price):
+    global TAX_RATE
+    TAX_RATE = 0.15
+    final_tax = price * TAX_RATE
+    return final_tax
+
+result = calculate_tax(250)
+print(f"Ваш расчет: {result}")
+print(f"TAX_RATE после вызова функции: {TAX_RATE}")
